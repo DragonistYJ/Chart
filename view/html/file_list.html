@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File List</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>文件名</th>
+            <th>大小</th>
+        </tr>
+        </thead>
+        <tbody id="dirList">
+        </tbody>
+    </table>
+</div>
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/qwebchannel.js"></script>
+<script>
+    function updateList(filenames, sizes) {
+        let dirList = document.getElementById('dirList');
+        let table = '';
+        for (let i = 0; i < filenames.length; i++) {
+            table += "<tr id=item_" + i + " onclick='item_clicked(this)'><td>"
+                + filenames[i] + "</td><td>" + sizes[i] + "</td></tr>"
+        }
+        dirList.innerHTML = table;
+    }
+
+    function item_clicked(item) {
+        let item_id = item.id;
+        new QWebChannel(qt.webChannelTransport, function (channel) {
+            let dir_list_obj = channel.objects.dir_list_obj;
+            dir_list_obj.file_item_clicked(item_id);
+        });
+    }
+</script>
+</html>

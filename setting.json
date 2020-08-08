@@ -1,0 +1,24 @@
+{
+  "channels": 3,
+  "line_colors": [
+    "#000000",
+    "#000000",
+    "#ff0000"
+  ],
+  "background_colors": [
+    "#ffffff",
+    "#FFFFF0",
+    "#ffffff"
+  ],
+  "x_axis_colors": [
+    "#000000",
+    "#8f8f8f"
+  ],
+  "y_axis_colors": [
+    "#000000",
+    "#00ff00"
+  ],
+  "tooltip_colors": [
+    "#8fffffff"
+  ]
+}
